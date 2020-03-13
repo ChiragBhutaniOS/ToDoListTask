@@ -28,6 +28,7 @@ export default class TodoListView extends React.Component {
     this.fetchData();
   }
 
+  //Fetch data from API
   fetchData = () => {
 
     url = Constants.hostname+Constants.endpoint;
@@ -71,11 +72,13 @@ export default class TodoListView extends React.Component {
     }
     if(this.state.isError){
       return(
-        <View style = {styles.errorView}>
-          <Text style = {styles.errorTitleText}>Something went wrong</Text>
-          <Text>Give it another try</Text>
-          <View style = {styles.buttonReload}>
-            <Button title = "RELOAD" onPress = {this.onReloadPressed}/>
+        <View>
+          <View style = {styles.errorView}>
+            <Text style = {styles.errorTitleText}>Something went wrong</Text>
+            <Text>Give it another try</Text>
+            <View style = {styles.buttonReload}>
+              <Button title = "RELOAD" onPress = {this.onReloadPressed}/>
+            </View>
           </View>
         </View>
       )
@@ -101,10 +104,11 @@ export default class TodoListView extends React.Component {
 
 const styles = StyleSheet.create({
   errorView: {
+    flexDirection : 'column',
     alignItems : 'center',
     justifyContent : 'center',
     padding: 10,
-    marginVertical: 0,
+    marginVertical: 200,
   },
   errorTitleText: {
     fontSize: 20,
